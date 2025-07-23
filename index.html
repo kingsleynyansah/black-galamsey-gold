@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Black Galamsey Gold</title>
+  <link rel="stylesheet" href="style.css" />
+  <script>
+    function changeLanguage(lang) {
+      const elements = document.querySelectorAll('[data-i18n]');
+      elements.forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        el.textContent = translations[lang][key] || key;
+      });
+    }
+
+    const translations = {
+      fr: {
+        title: "Or Noir Galamsey",
+        slogan: "Or Pur. Confiance Pure.",
+        our_products: "Nos Produits",
+        place_order: "Passez votre commande",
+        select_product: "Sélectionner un produit:",
+        quantity: "Quantité:",
+        email: "Email:",
+        phone: "Numéro de téléphone:",
+        country: "Pays:",
+        address: "Adresse:",
+        submit: "Envoyer la commande"
+      },
+      es: {
+        title: "Oro Negro Galamsey",
+        slogan: "Oro Puro. Confianza Pura.",
+        our_products: "Nuestros Productos",
+        place_order: "Realiza tu Pedido",
+        select_product: "Selecciona un producto:",
+        quantity: "Cantidad:",
+        email: "Correo electrónico:",
+        phone: "Número de teléfono:",
+        country: "País:",
+        address: "Dirección:",
+        submit: "Enviar Pedido"
+      },
+      de: {
+        title: "Schwarzes Galamsey-Gold",
+        slogan: "Reines Gold. Reines Vertrauen.",
+        our_products: "Unsere Produkte",
+        place_order: "Bestellung aufgeben",
+        select_product: "Produkt auswählen:",
+        quantity: "Menge:",
+        email: "E-Mail:",
+        phone: "Telefonnummer:",
+        country: "Land:",
+        address: "Adresse:",
+        submit: "Bestellung absenden"
+      },
+      ar: {
+        title: "ذهب جالامسي الأسود",
+        slogan: "ذهب نقي. ثقة نقية.",
+        our_products: "منتجاتنا",
+        place_order: "قدم طلبك",
+        select_product: "اختر المنتج:",
+        quantity: "الكمية:",
+        email: "البريد الإلكتروني:",
+        phone: "رقم الهاتف:",
+        country: "البلد:",
+        address: "العنوان:",
+        submit: "إرسال الطلب"
+      }
+    };
+  </script>
+</head>
+<body>
+  <header>
+    <h1 data-i18n="title">Black Galamsey Gold</h1>
+    <p data-i18n="slogan">Pure Gold. Pure Trust.</p>
+    <select onchange="changeLanguage(this.value)">
+      <option value="en">English</option>
+      <option value="fr">Français</option>
+      <option value="es">Español</option>
+      <option value="de">Deutsch</option>
+      <option value="ar">العربية</option>
+    </select>
+  </header>
+
+  <section class="gallery">
+    <h2 data-i18n="our_products">Our Products</h2>
+    <div class="product">
+      <img src="assets/1oz-gold-bar.jpg.png" alt="1 oz Gold Bar" />
+      <h3>1 oz Gold Bar</h3>
+      <p>$600</p>
+    </div>
+    <div class="product">
+      <img src="assets/10oz-gold-bar.jpg.png" alt="10 oz Gold Bar" />
+      <h3>10 oz Gold Bar</h3>
+      <p>$5000</p>
+    </div>
+    <div class="product">
+      <img src="assets/1kilo-gold-bar.jpg.jpeg" alt="1 Kilo Gold Bar" />
+      <h3>1 Kilo Gold Bar</h3>
+      <p>$15000</p>
+    </div>
+  </section>
+
+  <section class="order-form">
+    <h2 data-i18n="place_order">Place Your Order</h2>
+    <form action="https://formspree.io/f/your-form-id" method="POST">
+      <label for="product" data-i18n="select_product">Select Product:</label>
+      <select name="product" id="product" required>
+        <option value="1 oz Gold Bar">1 oz Gold Bar - $600</option>
+        <option value="10 oz Gold Bar">10 oz Gold Bar - $5000</option>
+        <option value="1 Kilo Gold Bar">1 Kilo Gold Bar - $15000</option>
+      </select>
+
+      <label for="quantity" data-i18n="quantity">Quantity:</label>
+      <input type="number" name="quantity" id="quantity" min="1" required />
+
+      <label for="email" data-i18n="email">Email:</label>
+      <input type="email" name="email" id="email" required />
+
+      <label for="phone" data-i18n="phone">Phone Number:</label>
+      <input type="tel" name="phone" id="phone" required />
+
+      <label for="country" data-i18n="country">Country:</label>
+      <input type="text" name="country" id="country" required />
+
+      <label for="address" data-i18n="address">Address:</label>
+      <textarea name="address" id="address" required></textarea>
+
+      <button type="submit" data-i18n="submit">Submit Order</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Black Galamsey Gold. All rights reserved.</p>
+  </footer>
+</body>
+</html>
